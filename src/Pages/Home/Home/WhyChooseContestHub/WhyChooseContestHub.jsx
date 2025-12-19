@@ -1,4 +1,5 @@
 import { ShieldCheck, Gavel, Globe, Zap, BadgeCheck } from 'lucide-react';
+import useTheme from '../../../../hooks/useTheme';
 
 const features = [
   {
@@ -29,31 +30,93 @@ const features = [
 ];
 
 const WhyChooseContestHub = () => {
+  const { theme } = useTheme();
+  const isDark = theme === 'dark';
+
   return (
-    <section className="py-20 bg-gray-50">
-      <div className="max-w-7xl mx-auto px-4">
-        {/* Section Header */}
-        <div className="text-center mb-14">
-          <h2 className="text-4xl font-bold text-gray-900">
-            Why Choose <span className="text-indigo-600">ContestHub?</span>
+    <section
+      className={`relative py-24 overflow-hidden ${
+        isDark
+          ? 'bg-gradient-to-b from-gray-900 to-gray-950'
+          : 'bg-gradient-to-b from-gray-50 to-white'
+      }`}
+    >
+     
+      <div className="relative max-w-7xl mx-auto px-4">
+        {/* ================= HEADER ================= */}
+        <div className="text-center mb-16">
+          <h2
+            className={`text-4xl md:text-5xl font-extrabold ${
+              isDark ? 'text-white' : 'text-gray-900'
+            }`}
+          >
+            Why Choose{' '}
+            <span className="bg-linear-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
+              ContestHub
+            </span>
+            ?
           </h2>
-          <p className="mt-4 text-gray-600 max-w-2xl mx-auto">
-            A trusted platform where creativity meets opportunity.
+
+          <p
+            className={`mt-5 text-lg max-w-2xl mx-auto ${
+              isDark ? 'text-gray-400' : 'text-gray-600'
+            }`}
+          >
+            A trusted, transparent and global contest platform built for
+            creators and innovators.
           </p>
         </div>
 
-        {/* Features */}
+        {/* ================= FEATURES GRID ================= */}
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-          {features.map((item, index) => (
-            <div
-              key={index}
-              className="bg-white rounded-2xl p-8 shadow-sm hover:shadow-md transition"
-            >
-              <item.icon className="w-10 h-10 text-indigo-600 mb-4" />
-              <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
-              <p className="text-gray-600">{item.desc}</p>
-            </div>
-          ))}
+          {features.map((item, index) => {
+            const Icon = item.icon;
+
+            return (
+              <div
+                key={index}
+                className={`group relative rounded-3xl p-8
+                backdrop-blur-xl border shadow-lg
+                transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl
+                ${
+                  isDark
+                    ? 'bg-gray-900/60 border-gray-700/60'
+                    : 'bg-white/70 border-gray-200/60'
+                }`}
+              >
+                {/* Icon */}
+                <div
+                  className="w-14 h-14 rounded-2xl flex items-center justify-center mb-6
+                  bg-gradient-to-br from-indigo-500 to-purple-500
+                  text-white shadow-lg shadow-indigo-500/30
+                  group-hover:scale-110 transition-transform duration-300"
+                >
+                  <Icon className="w-7 h-7" />
+                </div>
+
+                {/* Title */}
+                <h3
+                  className={`text-xl font-bold mb-3 ${
+                    isDark ? 'text-white' : 'text-gray-900'
+                  }`}
+                >
+                  {item.title}
+                </h3>
+
+                {/* Description */}
+                <p
+                  className={`leading-relaxed ${
+                    isDark ? 'text-gray-400' : 'text-gray-600'
+                  }`}
+                >
+                  {item.desc}
+                </p>
+
+                {/* Hover Glow */}
+                <div className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition pointer-events-none border border-indigo-500/30" />
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>
