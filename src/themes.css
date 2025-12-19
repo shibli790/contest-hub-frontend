@@ -1,0 +1,80 @@
+@theme {
+  /* Color Tokens */
+  --color-primary: var(--color-primary);
+  /* --color-secondary: var(--color-secondary);
+  --color-accent: var(--color-accent); */
+
+  /* Backgrounds */
+  --color-background: var(--color-background);
+  --color-bg-secondary: var(--color-bg-secondary);
+  --color-placeholder: var(--color-placeholder);
+  --color-bg-surface: var(--color-bg-surface);
+  --color-bg-reverse: var(--color-bg-reverse);
+  /* --color-bg-muted: var(--color-bg-muted);
+  --color-bg-hover: var(--color-bg-hover);
+  --color-overlay: var(--color-overlay); */
+
+  /* Text */
+  --color-text-primary: var(--color-text-primary);
+  --color-text-reverse: var(--color-text-reverse);
+  --color-text-secondary: var(--color-text-secondary);
+  --color-text-muted: var(--color-text-muted);
+
+  /* Border */
+  --color-border: var(--color-border);
+}
+
+/* 🌞 Light Theme (default) */
+:root {
+  --color-primary: green;
+  --color-secondary: #6366f1;
+  --color-accent: #f59e0b;
+
+  /* Backgrounds */
+  --color-background: #f9fafb;
+  --color-bg-secondary: #fffdf7;
+  --color-bg-surface: #eceaea;
+  --color-bg-reverse: #111827;
+  --color-placeholder: #f9fafb;
+
+  --color-bg-muted: #f3f4f6;
+  --color-bg-hover: #e5e7eb;
+  --color-overlay: rgba(0, 0, 0, 0.4);
+
+  /* Text */
+  --color-text-primary: #111827;
+  --color-text-secondary: #4b5563;
+  --color-text-reverse: #fff;
+  --color-text-muted: #9ca3af;
+
+  /* Border */
+  --color-border: #bbbbbb79;
+}
+
+/* 🌚 Dark Theme */
+[data-theme="dark"] {
+  --color-primary: rgb(36, 36, 187);
+  /* --color-secondary: #4338ca;
+  --color-accent: #fbbf24; */
+
+  /* Backgrounds */
+  --color-background: #0a0f24;
+  --color-bg-secondary: #0f172a;
+
+  --color-bg-surface: #263344;
+  --color-bg-reverse: #ebf0ff;
+  --color-placeholder: #1e2939;
+
+  /* --color-bg-muted: #374151;
+  --color-bg-hover: #4b5563;
+  --color-overlay: rgba(255, 255, 255, 0.1); */
+
+  /* Text */
+  --color-text-primary: #ebf0ff;
+  --color-text-secondary: #d1d5db;
+  --color-text-reverse: #0a0f24;
+  --color-text-muted: #9ca3af;
+
+  /* Border */
+  --color-border: #191d2f;
+}
