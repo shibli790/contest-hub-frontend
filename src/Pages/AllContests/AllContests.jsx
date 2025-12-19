@@ -95,6 +95,18 @@ const AllContests = () => {
               {/* RESULTS INFO */}
               <div className="flex items-center justify-between mb-10">
                 <div
+                  className={`inline-flex items-center font-bold  gap-3 px-5 py-2.5 rounded-full text-xl  backdrop-blur ${
+                    theme === 'dark'
+                      ? 'bg-slate-800/60 text-gray-300 border border-slate-700'
+                      : 'bg-white/70 text-gray-700 border border-gray-200'
+                  }`}
+                >
+                  Contests{' '}
+                  <span className="text-indigo-600 dark:text-indigo-400">
+                    Found
+                  </span>
+                </div>
+                <div
                   className={`inline-flex items-center gap-3 px-5 py-2.5 rounded-full text-sm font-semibold backdrop-blur ${
                     theme === 'dark'
                       ? 'bg-slate-800/60 text-gray-300 border border-slate-700'
@@ -102,9 +114,8 @@ const AllContests = () => {
                   }`}
                 >
                   <span className="text-indigo-600 dark:text-indigo-400">
-                    {allContest.length}
+                   Total  {allContest.length}
                   </span>
-                  Contests Found
                 </div>
               </div>
 
