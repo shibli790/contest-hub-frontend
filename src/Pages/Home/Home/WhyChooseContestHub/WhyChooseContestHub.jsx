@@ -35,7 +35,7 @@ const WhyChooseContestHub = () => {
 
   return (
     <section
-      className={`relative py-24 overflow-hidden `}
+      className={`relative mt-16  `}
     >
      
       <div className="relative max-w-7xl mx-auto px-4">

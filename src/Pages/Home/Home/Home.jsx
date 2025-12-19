@@ -4,6 +4,7 @@ import PopularContest from '../PopularContest/PopularContest';
 import WinnerAdvertisement from '../WinnerAdvertisement/WinnerAdvertisement';
 import ContestHub from '../ContestHub/ContestHub';
 import WhyChooseContestHub from './WhyChooseContestHub/WhyChooseContestHub';
+import FAQ from '../FAQ/FAQ';
 
 const Home = () => {
   return (
@@ -12,7 +13,8 @@ const Home = () => {
       <PopularContest />
       <WinnerAdvertisement />
       <ContestHub />
-      <WhyChooseContestHub/>
+      <WhyChooseContestHub />
+      <FAQ/>
     </div>
   );
 };
