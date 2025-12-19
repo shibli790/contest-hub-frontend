@@ -1,12 +1,12 @@
-import React, { useState } from "react";
-import { Link, useLocation, useNavigate } from "react-router";
-import Logo from "../../../Components/Logo";
-import { Eye, EyeOff } from "lucide-react";
-import SocialLogin from "../SocialLogin/SocialLogin";
-import useAuth from "../../../hooks/useAuth";
-import { useForm } from "react-hook-form";
-import toast from "react-hot-toast";
-import { getAuthErrorMessage } from "../../../utility/auth/getAuthErrorMessage";
+import React, { useState } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router';
+import Logo from '../../../Components/Logo';
+import { Eye, EyeOff } from 'lucide-react';
+import SocialLogin from '../SocialLogin/SocialLogin';
+import useAuth from '../../../hooks/useAuth';
+import { useForm } from 'react-hook-form';
+import toast from 'react-hot-toast';
+import { getAuthErrorMessage } from '../../../utility/auth/getAuthErrorMessage';
 
 const Login = () => {
   const { signIn } = useAuth();
@@ -15,124 +15,150 @@ const Login = () => {
     handleSubmit,
     formState: { errors },
   } = useForm();
+
   const navigate = useNavigate();
-  const [showPassword, setShowPassword] = useState(false);
-  const [isAuthenticating, setIsAuthticating] = useState(false);
   const location = useLocation();
 
-  const onSubmit = async (data) => {
-    setIsAuthticating(true);
+  const [showPassword, setShowPassword] = useState(false);
+  const [isAuthenticating, setIsAuthenticating] = useState(false);
+
+  const onSubmit = async data => {
+    setIsAuthenticating(true);
     try {
       await signIn(data.email, data.password);
-      toast.success("Login Successful");
-      navigate(location.state || "/", { replace: true });
+      toast.success('Login successful 🎉');
+      navigate(location.state || '/', { replace: true });
     } catch (error) {
-      const message = getAuthErrorMessage(error.code);
-      toast.error(message);
+      toast.error(getAuthErrorMessage(error.code));
     } finally {
-      setIsAuthticating(false);
+      setIsAuthenticating(false);
     }
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center px-4">
-      <div className="w-full max-w-116">
-        {/* Logo & Title */}
-        <div className="mb-4 flex items-center justify-center">
+    <div className="min-h-screen flex items-center justify-center px-4 bg-bg">
+      <div className="w-full max-w-md">
+        {/* ================= LOGO ================= */}
+        <div className="flex justify-center mb-6">
           <Logo />
         </div>
-        {/* Form Card */}
-        <div className=" rounded-3xl shadow-2x">
-          <h2 className="text-2xl font-semibold mb-6 text-center">
-            Sign in to your account
-          </h2>
 
-          <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+        {/* ================= CARD ================= */}
+        <div
+          className="rounded-3xl p-8 md:p-10 border shadow-2xl backdrop-blur-xl
+          bg-bg-surface/70 border-border/50"
+        >
+          <h2 className="text-2xl md:text-3xl font-bold text-center mb-2">
+            Welcome Back 👋
+          </h2>
+          <p className="text-center text-text-secondary mb-8">
+            Sign in to continue to ContestHub
+          </p>
+
+          {/* ================= FORM ================= */}
+          <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
             {/* Email */}
             <div>
-              <label className="block text-sm font-medium text-gray-300 mb-2">
-                Email
-              </label>
+              <label className="block text-sm font-medium mb-2">Email</label>
               <input
                 type="email"
                 placeholder="you@example.com"
                 autoComplete="email"
-                {...register("email", { required: "Email is required" })}
-                className="w-full px-4 py-3 bg-placeholder/50 border border-border rounded-xl placeholder-gray-500 focus:outline-none focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500 focus:ring-opacity-50 transition"
+                {...register('email', { required: 'Email is required' })}
+                className="w-full px-4 py-3 rounded-xl bg-bg-surface/50
+                border border-border/50 placeholder:text-text-secondary
+                focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500
+                outline-none transition"
               />
+              {errors.email && (
+                <p className="text-sm text-red-500 mt-1">
+                  {errors.email.message}
+                </p>
+              )}
             </div>
-            {errors?.email && (
-              <p className="text-red-500">{errors?.email?.message}</p>
-            )}
 
             {/* Password */}
             <div>
-              <label className="block text-sm font-medium text-gray-300 mb-2">
-                Password
-              </label>
+              <label className="block text-sm font-medium mb-2">Password</label>
               <div className="relative">
                 <input
-                  type={showPassword ? "text" : "password"}
+                  type={showPassword ? 'text' : 'password'}
                   placeholder="Enter your password"
                   autoComplete="current-password"
-                  {...register("password", {
-                    required: "Password is required",
+                  {...register('password', {
+                    required: 'Password is required',
                   })}
-                  className="w-full px-4 py-3 bg-placeholder/50 border border-border rounded-xl placeholder-gray-500 focus:outline-none focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500 focus:ring-opacity-50 transition"
+                  className="w-full px-4 py-3 rounded-xl bg-bg-surface/50
+                  border border-border/50 placeholder:text-text-secondary
+                  focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500
+                  outline-none transition"
                 />
                 <button
                   type="button"
                   onClick={() => setShowPassword(!showPassword)}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-200 transition"
+                  className="absolute right-4 top-1/2 -translate-y-1/2
+                  text-text-secondary hover:text-text-primary transition"
                 >
                   {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
                 </button>
               </div>
-              {errors?.password && (
-                <p className="text-red-500">{errors?.password?.message}</p>
+              {errors.password && (
+                <p className="text-sm text-red-500 mt-1">
+                  {errors.password.message}
+                </p>
               )}
             </div>
 
-            {/* remember me and forgot password */}
-            <div className="flex items-center justify-between gap-3">
-              <div className="flex items-center gap-3">
+            {/* Remember & Forgot */}
+            <div className="flex items-center justify-between text-sm">
+              <label className="flex items-center gap-2 text-text-secondary">
                 <input
                   type="checkbox"
-                  id="terms"
-                  className="w-5 h-5 rounded bg-gray-800 border-gray-700 text-cyan-500 focus:ring-cyan-500 focus:ring-offset-gray-900"
+                  className="w-4 h-4 rounded border-border bg-bg-surface
+                  text-cyan-500 focus:ring-cyan-500"
                 />
-                <label htmlFor="terms" className="text-sm text-gray-400">
-                  Remember me
-                </label>
-              </div>
-              <Link>Fogot Password?</Link>
+                Remember me
+              </label>
+
+              <Link
+                to="/forgot-password"
+                className="text-cyan-400 hover:text-cyan-300 transition"
+              >
+                Forgot password?
+              </Link>
             </div>
 
-            {/* Sign Up Button */}
+            {/* Submit */}
             <button
               type="submit"
-              className="w-full py-3.5 bg-linear-to-r from-blue-600 to-cyan-500 text-white font-medium rounded-xl hover:from-blue-700 hover:to-cyan-600 focus:outline-none focus:ring-4 focus:ring-cyan-500 focus:ring-opacity-50 disabled:opacity-50 disabled:cursor-not-allowed transition"
+              disabled={isAuthenticating}
+              className="w-full py-3.5 rounded-xl font-semibold text-white
+              bg-gradient-to-r from-blue-600 to-cyan-500
+              hover:from-blue-700 hover:to-cyan-600
+              focus:ring-4 focus:ring-cyan-500/40
+              disabled:opacity-60 disabled:cursor-not-allowed
+              transition-all"
             >
-              {isAuthenticating ? "Login In..." : "Log in"}
+              {isAuthenticating ? 'Signing in...' : 'Sign In'}
             </button>
           </form>
 
-          {/* Divider */}
-          <div className="my-5 flex items-center">
-            <div className="flex-1 border-t border-gray-700"></div>
-            <span className="px-4 text-sm text-gray-500">or</span>
-            <div className="flex-1 border-t border-gray-700"></div>
+          {/* ================= DIVIDER ================= */}
+          <div className="my-6 flex items-center gap-4">
+            <span className="flex-1 h-px bg-border/60" />
+            <span className="text-sm text-text-secondary">or</span>
+            <span className="flex-1 h-px bg-border/60" />
           </div>
 
-          {/* Google Sign Up */}
+          {/* ================= SOCIAL LOGIN ================= */}
           <SocialLogin />
 
-          {/* Sign In Link */}
-          <p className="text-center mt-6 text-gray-400 text-sm">
-            don't have an account?{" "}
+          {/* ================= FOOTER ================= */}
+          <p className="text-center mt-6 text-sm text-text-secondary">
+            Don’t have an account?{' '}
             <Link
               to="/signup"
-              className="text-cyan-400 hover:text-cyan-300 font-medium"
+              className="text-cyan-400 hover:text-cyan-300 font-medium transition"
             >
               Sign Up
             </Link>
