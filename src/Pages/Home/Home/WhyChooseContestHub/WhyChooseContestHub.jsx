@@ -35,11 +35,7 @@ const WhyChooseContestHub = () => {
 
   return (
     <section
-      className={`relative py-24 overflow-hidden ${
-        isDark
-          ? 'bg-gradient-to-b from-gray-900 to-gray-950'
-          : 'bg-gradient-to-b from-gray-50 to-white'
-      }`}
+      className={`relative py-24 overflow-hidden `}
     >
      
       <div className="relative max-w-7xl mx-auto px-4">

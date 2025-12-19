@@ -9,7 +9,7 @@ const ContestHub = () => {
   const { theme } = useTheme();
 
   return (
-    <section className="relative overflow-hidden py-28 px-4 sm:px-6 lg:px-8  transition-colors duration-300">
+    <section className="relative overflow-hidden  py-28 px-4 sm:px-6 lg:px-8  transition-colors duration-300">
       <div className="relative max-w-7xl mx-auto">
        <SubscribeHeader/>
         <SubscribeSection theme={theme} />

@@ -127,28 +127,6 @@ const WinnerAdvertisement = () => {
 
         {/* Section Header */}
         <WinnerHeader />
-        {/* Statistics Section */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
-          <StatCard
-            icon="👥"
-            label="Total Winners"
-            theme={theme}
-            value={stats.totalWinners.toLocaleString()}
-          />
-          <StatCard
-            icon="💰"
-            label="Prize Pool Distributed"
-            theme={theme}
-            value={`$${(stats.totalPrizeMoney / 1000).toFixed(0)}K`}
-          />
-          <StatCard
-            icon="🏆"
-            label="Active Contests"
-            theme={theme}
-            value={stats.activeContests}
-          />
-        </div>
-
         {/* Call to Action */}
         <div className="relative overflow-hidden rounded-3xl border border-border/40 bg-bg-surface/40 px-8 py-14 sm:px-14 text-center shadow-xl">
           {/* Background Glow */}
@@ -196,6 +174,27 @@ const WinnerAdvertisement = () => {
               🚀 100+ active contests • 🏆 $50K+ prizes • 🌍 Global community
             </p>
           </div>
+        </div>
+        {/* Statistics Section */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-20 ">
+          <StatCard
+            icon="👥"
+            label="Total Winners"
+            theme={theme}
+            value={stats.totalWinners.toLocaleString()}
+          />
+          <StatCard
+            icon="💰"
+            label="Prize Pool Distributed"
+            theme={theme}
+            value={`$${(stats.totalPrizeMoney / 1000).toFixed(0)}K`}
+          />
+          <StatCard
+            icon="🏆"
+            label="Active Contests"
+            theme={theme}
+            value={stats.activeContests}
+          />
         </div>
       </Container>
 
