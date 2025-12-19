@@ -3,6 +3,7 @@ import BannerSection from '../Banner';
 import PopularContest from '../PopularContest/PopularContest';
 import WinnerAdvertisement from '../WinnerAdvertisement/WinnerAdvertisement';
 import ContestHub from '../ContestHub/ContestHub';
+import WhyChooseContestHub from './WhyChooseContestHub/WhyChooseContestHub';
 
 const Home = () => {
   return (
@@ -10,7 +11,8 @@ const Home = () => {
       <BannerSection />
       <PopularContest />
       <WinnerAdvertisement />
-      <ContestHub/>
+      <ContestHub />
+      <WhyChooseContestHub/>
     </div>
   );
 };

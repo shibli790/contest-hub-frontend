@@ -4,7 +4,7 @@ const StatCard = ({ icon, label, value }) => {
   return (
     <div
       className="
-    group relative overflow-hidden rounded-2xl p-6 text-center
+    group relative overflow-hidden shadow-xl rounded-2xl p-6 text-center
     bg-white/70 dark:bg-white/5
     border border-gray-200/60 dark:border-white/10
     backdrop-blur-xl
