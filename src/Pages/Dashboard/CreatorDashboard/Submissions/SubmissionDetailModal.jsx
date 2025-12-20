@@ -21,6 +21,8 @@ const SubmissionDetailModal = ({ submission, theme, onClose, user }) => {
   const isWinnerDeclared = contest?.winner ? true : false;
 
   const handleDeclareWinner = async (submission) => {
+    console.log(handleDeclareWinner);
+    
     const { submittedBy } = submission;
     try {
       const updatedDoc = {
@@ -182,39 +184,7 @@ const SubmissionDetailModal = ({ submission, theme, onClose, user }) => {
             </div>
           </div>
 
-          {isDeadlineOver ? (
-            <div
-              className={`rounded-lg p-4 border ${
-                theme === "dark"
-                  ? "bg-amber-900/30 border-amber-700/50"
-                  : "bg-amber-50 border-amber-200"
-              }`}
-            >
-              <p
-                className={`text-sm font-medium ${
-                  theme === "dark" ? "text-amber-300" : "text-amber-900"
-                }`}
-              >
-                ⚠️ Declare this participant as the winner of this contest?
-              </p>
-            </div>
-          ) : (
-            <div
-              className={`rounded-lg p-4 border ${
-                theme === "dark"
-                  ? "bg-amber-900/30 border-amber-700/50"
-                  : "bg-amber-50 border-amber-200"
-              }`}
-            >
-              <p
-                className={`text-sm font-medium ${
-                  theme === "dark" ? "text-amber-300" : "text-amber-900"
-                }`}
-              >
-                ⚠️ Deadline is Not over yet
-              </p>
-            </div>
-          )}
+          
         </div>
 
         {/* Footer */}

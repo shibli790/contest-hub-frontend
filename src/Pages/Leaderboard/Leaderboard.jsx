@@ -37,7 +37,7 @@ const Leaderboard = () => {
             <div className="absolute -top-24 -left-24 w-72 h-72 bg-indigo-500/20 rounded-full blur-3xl" />
             <div className="absolute -bottom-24 -right-24 w-72 h-72 bg-purple-500/20 rounded-full blur-3xl" />
             <h1 className="text-4xl md:text-6xl font-extrabold">
-              Global <span className="text-yellow-500">Leaderboard</span>
+              Win <span className="text-yellow-500">Board</span>
             </h1>
             <p
               className={`mt-6 max-w-2xl mx-auto text-lg ${

@@ -23,7 +23,7 @@ function Navbar() {
   const navLinks = [
     { name: 'Home', href: '/' },
     { name: 'All Contests', href: '/all-contests' },
-    { name: 'Leaderboard', href: '/leaderboard' },
+    { name: 'Win Board', href: '/leaderboard' },
   ];
 
   /* ================= CLICK OUTSIDE ================= */
