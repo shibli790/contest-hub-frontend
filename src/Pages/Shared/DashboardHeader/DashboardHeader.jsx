@@ -64,17 +64,6 @@ const DashboardHeader = ({ sidebarOpen, setSidebarOpen }) => {
 
       {/* ---------- Right ---------- */}
       <div className="flex items-center gap-3">
-        {/* Notifications */}
-        <button
-          className={`relative p-2 rounded-xl transition hover:scale-105 ${
-            theme === 'dark' ? 'hover:bg-gray-700/60' : 'hover:bg-gray-100'
-          }`}
-        >
-          <Bell className="w-5 h-5" />
-          <span className="absolute top-1.5 right-1.5 w-2.5 h-2.5 bg-red-500 rounded-full animate-ping" />
-          <span className="absolute top-1.5 right-1.5 w-2.5 h-2.5 bg-red-500 rounded-full" />
-        </button>
-
         {/* Logout */}
         <button
           onClick={handleLogout}

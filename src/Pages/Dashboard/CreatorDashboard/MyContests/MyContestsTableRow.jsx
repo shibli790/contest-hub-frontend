@@ -48,7 +48,7 @@ const MyContestsTableRow = ({ theme, contest, refetch }) => {
           await axiosSecure.delete(`/contests/${id}`);
 
           Swal.fire('Deleted!', 'Contest deleted successfully.', 'success');
-          toast.success('Contest Deleted!');
+          
           refetch();
         } catch (error) {
           Swal.fire('Error!', 'Failed to delete contest.', 'error');
