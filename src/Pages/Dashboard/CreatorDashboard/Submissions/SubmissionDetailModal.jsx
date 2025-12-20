@@ -1,67 +1,19 @@
 import React from "react";
-import useAxiosSecure from "../../../../hooks/useAxiosSecure";
 import toast from "react-hot-toast";
-import { useQuery } from "@tanstack/react-query";
 
-const SubmissionDetailModal = ({ submission, theme, onClose, user }) => {
-  const axiosSecure = useAxiosSecure();
 
-  const { data: contest = {}, isLoading } = useQuery({
-    enabled: !!user,
-    queryKey: ["winner", submission.id],
-    queryFn: async () => {
-      const res = await axiosSecure(`/contests/${submission?.contestId}`);
-      return res.data;
-    },
-  });
+const SubmissionDetailModal = ({ submission, theme, onClose}) => {
 
-  const isDeadlineOver =
-    new Date() > new Date(contest?.deadline).setHours(23, 59, 59, 999);
 
-  const isWinnerDeclared = contest?.winner ? true : false;
+ 
 
-  const handleDeclareWinner = async (submission) => {
+  
+  const handleDeclareWinner = async () => {
     console.log(handleDeclareWinner);
-    
-    const { submittedBy } = submission;
-    try {
-      const updatedDoc = {
-        winner: submittedBy?.name,
-        winnerImage: submittedBy?.image,
-        winnerEmail: submittedBy?.email,
-      };
-      // add winner in contest
-      const res = await axiosSecure.patch(
-        `/contests/${submission.contestId}`,
-        updatedDoc
-      );
-      // update user totalWon
-      await axiosSecure.patch(`/users/email/${submittedBy?.email}`);
-
-      const winnerData = {
-        name: submittedBy?.name,
-        avatar: submittedBy?.image,
-        prize: contest?.prizeMoney,
-        email: submittedBy?.email,
-        contestName: contest?.name,
-        position: "1st Place",
-        badge: "🥇",
-      };
-      // add user in winners database
-      await axiosSecure.post("/winners", winnerData);
-
-      if (res.data.modifiedCount) {
-        toast.success("Winner is Declared");
-      }
-      onClose();
-    } catch {
-      toast.error("Winner declaretation failed");
-    }
+    toast.success('Winner declaretation successfully ✨');
   };
 
-  if (isLoading) {
-    return <h1 className="text-xl">Loading...</h1>;
-  }
+  
 
   return (
     <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4">
@@ -205,16 +157,17 @@ const SubmissionDetailModal = ({ submission, theme, onClose, user }) => {
           </button>
 
           <button
-            disabled={isWinnerDeclared || !isDeadlineOver}
+           
             onClick={() => handleDeclareWinner(submission)}
             className={`px-6 py-2 rounded-lg font-semibold flex items-center gap-2  text-white transition-all duration-300 transform hover:-translate-y-0.5 active:scale-95 shadow-lg disabled:opacity-55 ${
-              isWinnerDeclared
-                ? "bg-linear-to-r from-yellow-500 to-yellow-800 hover:from-yellow-600 hover:to-yellow-800"
-                : "bg-linear-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600"
+             
+              theme === "dark"
+                ? "bg-linear-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 shadow-cyan-500/25"
+                : "bg-linear-to-r from-blue-600 to-cyan-500 hover:from-blue-700 hover:to-cyan-600 shadow-blue-500/25"
             }`}
           >
             <span>🏆</span>
-            {isWinnerDeclared ? "Already Winner Declared" : "Declare Winner"}
+            Declare as Winner
           </button>
         </div>
       </div>

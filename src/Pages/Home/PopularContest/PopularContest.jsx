@@ -37,7 +37,7 @@ const PopularContest = () => {
       >
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {[...Array(5)].map((_, i) => (
+            {[...Array(6)].map((_, i) => (
               <div
                 key={i}
                 className={`rounded-2xl overflow-hidden ${
@@ -78,8 +78,8 @@ const PopularContest = () => {
         <Header theme={theme} />
 
         {/* Contests Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 ">
-          {popularContests.map((contest, index) => (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 ">
+          {popularContests.slice(0, 6).map((contest, index) => (
             <ContestCard
               key={contest._id}
               contest={contest}

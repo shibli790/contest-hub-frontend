@@ -9,6 +9,7 @@ import { getAuthErrorMessage } from '../../../utility/auth/getAuthErrorMessage';
 import toast from 'react-hot-toast';
 import { saveUser } from '../../../utility/auth/saveUser';
 import useAuth from '../../../hooks/useAuth';
+import Swal from 'sweetalert2';
 
 export default function SignUp() {
   const { createUser, updateUserProfile } = useAuth();
@@ -44,7 +45,12 @@ export default function SignUp() {
         profilePicture: imageURL,
       });
 
-      toast.success('Account created successfully 🎉');
+      
+      Swal.fire({
+        title: 'Account created successfully 🎉',
+        icon: 'success',
+        draggable: true,
+      });
       navigate(location.state || '/', { replace: true });
     } catch (error) {
       toast.error(getAuthErrorMessage(error.code));

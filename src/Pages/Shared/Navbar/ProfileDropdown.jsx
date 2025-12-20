@@ -3,6 +3,7 @@ import { LayoutDashboard, LogOut } from "lucide-react";
 import toast from "react-hot-toast";
 import { Link, useNavigate } from "react-router";
 import useRole from "../../../hooks/useRole";
+import Swal from "sweetalert2";
 const ProfileDropdown = ({ theme, user, logOut }) => {
   const navigate = useNavigate();
   const { role } = useRole();
@@ -10,7 +11,11 @@ const ProfileDropdown = ({ theme, user, logOut }) => {
   const handleLogout = async () => {
     await logOut();
     navigate("/login");
-    toast.success("Logout Successful");
+    Swal.fire({
+      title: 'Logout Successful',
+      icon: 'success',
+      draggable: true,
+    });
   };
 
   return (

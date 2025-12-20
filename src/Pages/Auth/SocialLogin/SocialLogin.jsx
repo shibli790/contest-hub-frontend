@@ -4,6 +4,7 @@ import toast from 'react-hot-toast';
 import { getAuthErrorMessage } from '../../../utility/auth/getAuthErrorMessage';
 import useAuth from '../../../hooks/useAuth';
 import { saveUser } from '../../../utility/auth/saveUser';
+import Swal from 'sweetalert2';
 
 const SocialLogin = () => {
   const { signInWithGoogle } = useAuth();
@@ -22,7 +23,12 @@ const SocialLogin = () => {
         profilePicture: user.photoURL,
       });
 
-      toast.success('Logged in with Google ✨');
+     
+      Swal.fire({
+        title: 'Logged in with Google Successfully ✨',
+        icon: 'success',
+        draggable: true,
+      });
       navigate(location.state || '/', { replace: true });
     } catch (error) {
       toast.error(getAuthErrorMessage(error.code));

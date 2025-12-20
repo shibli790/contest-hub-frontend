@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import useAxiosSecure from '../../../../hooks/useAxiosSecure';
 import toast from 'react-hot-toast';
+import Swal from 'sweetalert2';
 
 const ROLE_EMOJI = {
   user: '🙍',
@@ -20,7 +21,12 @@ const UserTableRow = ({ user, theme, ROLE_OPTIONS }) => {
         role: selectedRole.toLowerCase(),
       });
       if (res.data.modifiedCount) {
-        toast.success('✅ User role updated successfully');
+        
+        Swal.fire({
+          title: '✅ User role updated successfully',
+          icon: 'success',
+          draggable: true,
+        });
       }
     } catch {
       toast.error('❌ Failed to update user role');

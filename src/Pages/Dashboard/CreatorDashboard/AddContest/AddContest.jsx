@@ -64,7 +64,12 @@ const AddContest = () => {
           const res = await axiosSecure.post('/contests', contestDetails);
 
           if (res.data.insertedId) {
-            toast.success('Your Contest is Added. Wait for admin approval.');
+           
+            Swal.fire({
+              title: '✅ User role updated successfully',
+              icon: 'success',
+              draggable: true,
+            });
             navigate('/dashboard/my-contests');
           }
         }

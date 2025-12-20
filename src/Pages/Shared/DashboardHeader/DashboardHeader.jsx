@@ -4,6 +4,7 @@ import useRole from '../../../hooks/useRole';
 import useTheme from '../../../hooks/useTheme';
 import toast from 'react-hot-toast';
 import { Bell, LogOut, Menu } from 'lucide-react';
+import Swal from 'sweetalert2';
 
 const DashboardHeader = ({ sidebarOpen, setSidebarOpen }) => {
   const { theme } = useTheme();
@@ -14,7 +15,11 @@ const DashboardHeader = ({ sidebarOpen, setSidebarOpen }) => {
   const handleLogout = async () => {
     await logOut();
     navigate('/login');
-    toast.success('Logout Successful');
+    Swal.fire({
+      title: 'Logout Successful ✅',
+      icon: 'success',
+      draggable: true,
+    });
   };
 
   if (isRoleLoading) {

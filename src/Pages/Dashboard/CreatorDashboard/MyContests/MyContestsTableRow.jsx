@@ -52,7 +52,6 @@ const MyContestsTableRow = ({ theme, contest, refetch }) => {
           refetch();
         } catch (error) {
           Swal.fire('Error!', 'Failed to delete contest.', 'error');
-          toast.error('Failed to delete contest.');
           console.error(error);
         }
       }

@@ -7,6 +7,7 @@ import useAuth from '../../../hooks/useAuth';
 import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
 import { getAuthErrorMessage } from '../../../utility/auth/getAuthErrorMessage';
+import Swal from 'sweetalert2';
 
 const Login = () => {
   const { signIn } = useAuth();
@@ -26,7 +27,12 @@ const Login = () => {
     setIsAuthenticating(true);
     try {
       await signIn(data.email, data.password);
-      toast.success('Login successful 🎉');
+    
+      Swal.fire({
+        title: 'Login successful 🎉 ',
+        icon: 'success',
+        draggable: true,
+      });
       navigate(location.state || '/', { replace: true });
     } catch (error) {
       toast.error(getAuthErrorMessage(error.code));

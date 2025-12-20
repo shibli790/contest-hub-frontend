@@ -8,6 +8,7 @@ import toast from 'react-hot-toast';
 import useTheme from '../../../../hooks/useTheme';
 import useAxiosSecure from '../../../../hooks/useAxiosSecure';
 import { getImageUrl } from '../../../../utility/getImageUrl';
+import Swal from 'sweetalert2';
 
 const EditContest = () => {
   const { id } = useParams();
@@ -86,7 +87,12 @@ const EditContest = () => {
       };
 
       await axiosSecure.patch(`/contests/${id}`, updatedContest);
-      toast.success('🎉 Contest updated successfully');
+      
+      Swal.fire({
+        title: '🎉 Contest updated successfully',
+        icon: 'success',
+        draggable: true,
+      });
       navigate('/dashboard/my-contests');
     } catch {
       toast.error('❌ Failed to update contest');

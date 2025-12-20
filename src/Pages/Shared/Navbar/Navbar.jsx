@@ -47,7 +47,7 @@ function Navbar() {
       bg-background border-b border-border/80 transition-all duration-300"
     >
       <Container>
-        <div className="flex items-center justify-between h-16 px-4">
+        <div className="flex items-center justify-between h-16 ">
           {/* ================= LOGO ================= */}
           <Logo />
 

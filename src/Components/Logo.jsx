@@ -7,7 +7,6 @@ const Logo = () => {
   return (
     <Link to="/" className="flex items-center cursor-pointer">
       <div className={`p-2 rounded-lg`}>
-        {/* <Trophy className={`w-6 h-6`} /> */}
         <img className={`w-10 `} src={logo} alt="" />
       </div>
       <span
