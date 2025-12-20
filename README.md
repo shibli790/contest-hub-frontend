@@ -35,7 +35,7 @@ A modern, full-stack contest creation and participation platform where users can
 💻 MERN Stack Developer  
 🚀 Passionate about building scalable web applications  
 
-📧 Email: your-email@gmail.com  
+📧 Email: shibliahmed444@gmail.com  
 
 
 ## 📌 About This Project
