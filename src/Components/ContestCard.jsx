@@ -35,7 +35,7 @@ const ContestCard = ({ contest, index, theme, getCategoryColor }) => {
             {contest.name}
           </h3>
           <div
-            className={` px-3 py-1.5 rounded-lg text-xs font-bold text-black bg-[#f236a1] ${getCategoryColor(
+            className={` px-3 py-1.5 rounded-lg text-xs font-bold text-white bg-[#f236a1] ${getCategoryColor(
               contest.category
             )} shadow-lg backdrop-blur-sm`}
           >

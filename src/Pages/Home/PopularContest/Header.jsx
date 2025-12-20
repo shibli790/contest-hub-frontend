@@ -39,7 +39,7 @@ const Header = () => {
       >
         <Link
           to="/all-contests"
-          className="group inline-flex items-center gap-3 px-8 py-4 rounded-2xl
+          className="group inline-flex items-center gap-3 px-6 py-2 rounded-2xl
                      font-semibold text-white
                      bg-linear-to-r from-indigo-600 to-purple-600
                      hover:from-indigo-700 hover:to-purple-700
@@ -47,7 +47,7 @@ const Header = () => {
                      shadow-lg shadow-purple-500/30 hover:shadow-2xl
                      hover:-translate-y-1"
         >
-          Show All Contests
+          Show All 
           <span
             className="w-8 h-8 flex items-center justify-center rounded-full 
                            bg-white/20 group-hover:bg-white/30 transition"
