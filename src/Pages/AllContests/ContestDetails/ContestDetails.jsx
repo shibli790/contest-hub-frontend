@@ -139,7 +139,7 @@ const ContestDetails = () => {
                 <button
                   onClick={() => navigate('/all-contests')}
                   className="flex items-center gap-2 px-5 py-2
-        bg-gradient-to-r from-indigo-600 to-purple-600 font-semibold rounded-lg
+        bg-gradient-to-r from-blue-900 to-rose-900 font-semibold text-white rounded-lg
         transition-all duration-300 hover:scale-105"
                 >
                   ⬅️ Back
@@ -305,7 +305,7 @@ const ContestDetails = () => {
                       📤 Submit Task
                     </button>
 
-                    <div className="rounded-lg p-4 text-center bg-green-50 border border-green-200">
+                    <div className="rounded-lg p-4 text-center text-black font-semibold  bg-green-50 border border-green-200">
                       ✅ You are Registered
                     </div>
                   </>
